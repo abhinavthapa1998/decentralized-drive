@@ -18,13 +18,16 @@ contract Upload {
 
     function allow(address user) external {
         ownership[msg.sender][user] = true;
-        accessList[msg.sender].push(Access(user, true));
+
         if (previousData[msg.sender][user]) {
             for (uint256 i = 0; i < accessList[msg.sender].length; i++) {
                 if (accessList[msg.sender][i].user == user) {
-                    accessList[msg.sender].push(Access(user, true));
+                    accessList[msg.sender][i].access = true;
                 }
             }
+        } else {
+            accessList[msg.sender].push(Access(user, true));
+            previousData[msg.sender][user] = true;
         }
     }
 
