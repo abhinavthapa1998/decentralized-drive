@@ -1,2 +1,3 @@
 # Decentralized Drive
-Decentralized File Sharing
+### Decentralized File Sharing
+#### Functions - allow, disallow, share, upload
